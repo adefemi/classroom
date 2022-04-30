@@ -80,3 +80,7 @@ class Teacher(DateAbstract):
     def __str__(self):
         return self.user.email
     
+    
+class FileUpload(models.Model):
+    file = models.FileField(upload_to="fileuploads")
+    
