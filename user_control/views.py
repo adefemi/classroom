@@ -1,5 +1,8 @@
 from rest_framework.viewsets import ModelViewSet
-from .serializers import CustomUser, UserSerializer, CreateUserSerializer
+from .serializers import (
+    CustomUser, UserSerializer, CreateUserSerializer, UserProfile, UserProfileSerializer,
+    Student, StudentSerializer, Teacher, TeacherSerializer, FileUpload, FileUploadSerializer
+)
 from rest_framework.response import Response
 from rest_framework import status
 
@@ -26,3 +29,22 @@ class UserViewSet(ModelViewSet):
     
         return Response(result, status=status.HTTP_201_CREATED)
     
+
+class UserProfileViewSet(ModelViewSet):
+    serializer_class = UserProfileSerializer
+    queryset = UserProfile.objects.all()
+    
+    
+class StudentViewSet(ModelViewSet):
+    serializer_class = StudentSerializer
+    queryset = Student.objects.all()
+    
+
+class TeacherViewSet(ModelViewSet):
+    serializer_class = TeacherSerializer
+    queryset = Teacher.objects.all()
+    
+    
+class FileUploadViewSet(ModelViewSet):
+    serializer_class = FileUploadSerializer
+    queryset = FileUpload.objects.all()

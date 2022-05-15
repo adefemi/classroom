@@ -66,6 +66,7 @@ class Student(DateAbstract):
     about = models.TextField()
     username = models.CharField(max_length=50, unique=True)
     user = models.OneToOneField(CustomUser, related_name="student_profile", on_delete=models.CASCADE)
+    image = models.TextField(null=True)
     
     def __str__(self):
         return self.user.email
@@ -76,6 +77,7 @@ class Teacher(DateAbstract):
     user = models.OneToOneField(CustomUser, related_name="teacher_profile", on_delete=models.CASCADE)
     qualification = models.CharField(max_length=4, choices=(("BSC", "BSC"), ("MSC", "MSC"), ("PHD", "PHD")))
     yoe = models.PositiveSmallIntegerField()
+    image = models.TextField(null=True)
     
     def __str__(self):
         return self.user.email
