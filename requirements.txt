@@ -5,8 +5,10 @@ cloudinary==1.29.0
 Django==4.0.4
 django-cloudinary-storage==0.3.0
 djangorestframework==3.13.1
+djangorestframework-simplejwt==5.1.0
 idna==3.3
 Pillow==9.1.0
+PyJWT==2.4.0
 python-decouple==3.6
 pytz==2022.1
 requests==2.27.1
