@@ -46,3 +46,9 @@ class FileUploadSerializer(serializers.ModelSerializer):
     class Meta:
         model = FileUpload
         fields = "__all__"
+        
+
+class LoginSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField()
+    role = serializers.ChoiceField(choices=(("teacher", "teacher"), ("student", "student")))

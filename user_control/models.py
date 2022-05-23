@@ -86,3 +86,11 @@ class Teacher(DateAbstract):
 class FileUpload(models.Model):
     file = models.FileField(upload_to="fileuploads")
     
+    
+class ActiveRole(models.Model):
+    user = models.OneToOneField(CustomUser, related_name="active_role", on_delete=models.CASCADE)
+    role = models.CharField(max_length=8, choices=(("teacher", "teacher"), ("student", "student")))
+    
+    def __str__(self):
+        return self.user.email
+    

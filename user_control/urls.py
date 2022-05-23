@@ -1,7 +1,7 @@
 from rest_framework.routers import DefaultRouter
 from .views import (
     UserViewSet, UserProfileViewSet, StudentViewSet, TeacherViewSet, 
-    FileUploadViewSet
+    FileUploadViewSet, LoginViewSet
 )
 from django.urls import path, include
 
@@ -13,6 +13,7 @@ myrouter.register('user-profile', UserProfileViewSet, 'user_profile_control')
 myrouter.register('student', StudentViewSet, 'student_control')
 myrouter.register('teacher', TeacherViewSet, 'teacher_control')
 myrouter.register('file-upload', FileUploadViewSet, 'file_control')
+myrouter.register('login', LoginViewSet, 'login_control')
 
 
 urlpatterns = [
