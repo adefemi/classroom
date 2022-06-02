@@ -146,7 +146,8 @@ CLOUDINARY_STORAGE = {
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    'EXCEPTION_HANDLER': 'classroom.error_handler.custom_error_handler'
 }
 
 SIMPLE_JWT = {

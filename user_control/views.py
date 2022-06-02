@@ -69,6 +69,9 @@ class LoginViewSet(ModelViewSet):
         
         user = authenticate(email=email, password=password)
         
+        if user is None:
+            raise Exception("Invalid credentials")
+        
         active_role = ActiveRole.objects.filter(user_id=user.id)
         
         if active_role:
