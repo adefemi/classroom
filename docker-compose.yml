@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  classroom_postgres:
+    container_name: classroom_postgres
+    image: postgres:12.0-alpine
+    volumes:
+      - classroom_postgres:/data/classroom_postgres
+    environment:
+      POSTGRES_USER: $POSTGRES_USER
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      PGDATA: /data/classroom_postgres
+    ports:
+      - "5434:5432"
+    networks:
+      - classroom_network
+    restart: unless-stopped
+
+networks:
+  classroom_network:
+    driver: bridge
+
+volumes:
+  classroom_postgres:
